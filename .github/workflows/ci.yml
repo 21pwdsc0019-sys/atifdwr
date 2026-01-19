@@ -1,0 +1,24 @@
+name: ci
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "6.0.x"
+
+      - name: Restore
+        run: dotnet restore TravelWorld.Desktop/TravelWorld.Desktop.csproj
+
+      - name: Build
+        run: dotnet build TravelWorld.Desktop/TravelWorld.Desktop.csproj -c Release --no-restore
