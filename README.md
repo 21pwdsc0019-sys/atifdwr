@@ -17,6 +17,9 @@ This repository contains a WPF (C#) desktop application scaffold plus SQL Server
 3. Update the connection string in the app settings (to be added in your environment).
 4. Run the app.
 
+## CI build
+This repository includes a GitHub Actions workflow that restores and builds the WPF app on Windows runners.
+
 ## Next implementation steps
 - Implement repositories and data services for each module.
 - Wire WPF views to real ViewModels and services.
